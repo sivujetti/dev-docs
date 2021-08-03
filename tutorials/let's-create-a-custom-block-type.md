@@ -49,7 +49,7 @@ window.sivujetti.blockTypes.register('TextAndImage', {
     friendlyName: __('Text and image'),
     ownPropNames: ['imageSrc'],
     initialData: {imageSrc: ""},
-    defaultRenderer: 'todo',
+    defaultRenderer: 'site:block-text-and-image',
     reRender({imageSrc}, renderChildren) {
         return `<article>` +
             'todo' +
@@ -102,4 +102,76 @@ Ilman backendin osuutta KuuraCms ei osaa:
 
 ### 1. Rekisteröi tyyppi
 
-todo
+Opetetaan Kuura validoimaan ja tallentamaan uudentyyppistä sisältöämme. Tee tämä muokkaamalla `<sivustonPolku>/backend/site/Site.php`:hen:
+
+```php
+...
+use KuuraCms\BlockType\PropertiesBuilder;
+...
+    public function __construct(WebsiteAPI $api) {
+        $api->registerBlockType("TextAndImage", new TextAndImageBlockType);
+        /* tai
+        $api->registerBlockType("TextAndImage", new class implements BlockTypeInterface {
+            public function defineProperties(PropertiesBuilder $builder): \ArrayObject {
+                return ...
+            }
+        });
+        */
+        ...
+    }
+}
+
+final class TextAndImageBlockType implements BlockTypeInterface {
+    /**
+     * @inheritdoc
+     */
+    public function defineProperties(PropertiesBuilder $builder): \ArrayObject {
+        return $builder
+            ->newProperty("html", $builder::DATA_TYPE_TEXT)
+            ->newProperty("imageSrc", $builder::DATA_TYPE_TEXT)
+            ->getResult();
+    }
+}
+
+```
+
+Tämän jälkeen KuuraCms osaa tallentaa ja validoida muokkausapplikaatiossa luodut lohkot käyttäen `TextAndImageBlockType->defineProperties()`-metodin ohjeita.
+
+### 2. Lisää oletustemplaatti
+
+Luo tiedosto `<sivustonPolku>/backend/site/templates/block-text-and-image.tmpl.php`:
+
+```php
+<div style="display:flex">
+    <article style="flex:1">
+        <?= $props->html // allow pre-validated html ?>
+    </article>
+    <img style="flex:1" src="<?= $this->assetUrl("public/uploads/{$props->imageSrc}") ?>">
+</div>
+```
+
+Päivitä `<sivustonPolku>/backend/site/Site.php`:
+
+```php
+...
+final class Site implements UserSiteInterface {
+    /**
+     * @param \KuuraCms\UserSite\UserSiteAPI $api
+     */
+    public function __construct(UserSiteAPI $api) {
+        ...
+        $api->registerBlockRenderer("site:block-text-and-image");
+    }
+...
+```
+
+Tämän jälkeen muokkaus-applikaatiossa lisätyt sisällöt myös renderöityy oikein.
+
+### Yhteenveto
+
+Lisäsimme sivustoomme uuden lohkotyypin:
+
+- Rekisteröimällä frontendin osuuden `window.sivujetti.blockTypes.register()`
+    - joka mahdollistaa uuden lohkotyyppimme valinnan muokkaus-applikaatiossa
+- Rekisteröimällä backendin osuudet `$userSiteApi->registerBlockType()` ja `$userSiteApi->registerBlockRenderer()`
+    - joka opettaa KuuraCms:n tallentamaan ja renderöimään lohkotyyppimme sisältöä
