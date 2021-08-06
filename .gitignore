@@ -5,5 +5,5 @@ _site
 .jekyll-metadata
 Gemfile.lock
 internal
-node_modules
-vendor
+/en/_sass/
+/en/assets/

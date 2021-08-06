@@ -1,0 +1,43 @@
+.bg-highlight {
+    background-color: #fff3b5;
+}
+p.message-box {
+    position: relative;
+    padding: 2.1rem 1rem .8rem;
+    border-left: .2rem solid $blue-100;
+    box-shadow: 0 0.2rem 0.5rem rgba(0,0,0,.05), 0 0 0.05rem rgba(0,0,0,.1);
+    font-size: .9rem;
+    border-radius: 2px;
+    margin: 1.8rem 0 1rem 0;
+    line-height: 1.6rem;
+}
+p.message-box:before {
+    content: attr(data-title);
+    position: absolute;
+    height: 1.6rem;
+    left: 0;
+    top: 0;
+    padding-left: 12px;
+    width: calc(100% - 12px);
+    font-weight: bold;
+    font-size: .8rem;
+    line-height: 1.6rem;
+}
+p.message-box.info {
+    border-left: .2rem solid $blue-100;
+}
+p.message-box.info:before {
+    background-color: rgba($blue-100, .05);
+}
+p.message-box.warning {
+    border-left-color: #ff9100;
+}
+p.message-box.warning:before {
+    background-color: rgba(#ff9100, .05);
+}
+p.message-box.error {
+    border-left-color:#e94c4c;
+}
+p.message-box.error:before {
+    background-color: rgba(#e94c4c, .05);
+}
