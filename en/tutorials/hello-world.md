@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Installation
-parent: Tutorials
+parent: Tutoriaalit
 nav_order: 1
 ---
 
@@ -32,17 +32,16 @@ Tätä tutoriaalia ei ole kirjoitettu linuxille, koska SivujettiSDK on saatavill
 
 ## Step 1. Lataa SivujettiSDK
 
-<span class="bg-highlight">Lataa</span> `sivujetti-sdk-x.x.x.zip` osoitteesta [github.com/sivujetti/sivujetti-sdk/releases](https://github.com/sivujetti/sivujetti-sdk/releases) (kohdasta Assets).
+<span class="bg-highlight">Lataa</span> `sivujetti-sdk-x.x.x.zip` osoitteesta [github.com/sivujetti/sivujetti-sdk/releases](https://github.com/sivujetti/sivujetti-sdk/releases) (Assets -osion alta).
 
-<span class="bg-highlight">Pura</span> `sivujetti-sdk-x.x.x.zip` haluamaasi kansioon (esim. Dokumentit) koneellesi.
+<span class="bg-highlight">Pura</span> `sivujetti-sdk-x.x.x.zip` Dokumentit-kansioon tietokoneellesi.
 
-<p class="message-box info" data-title="Info">
-SivujettiSDK on zip-paketti, joka sisältää kaiken tarvittavan Sivujetti-sivustojen pyörittämiseen lokaalissa ympäristössä. SDK:n mahdollistaa sen, ettei sinulla tarvitse olla koneellasi asennettuna mitään erityisiä ohjelmia, eikä sinun myöskään tarvitse asentaa tai ladata mitään SDK:ta lukuunottamatta. SDK sisltää _php8-tulkin_ sekä _php-devausserverin_.
-</p>
+SivujettiSDK on zip-paketti, joka sisältää kaiken tarvittavan Sivujetti-sivustojen pyörittämiseen lokaalissa ympäristössä. SDK:n mahdollistaa sen, ettei sinulla tarvitse olla koneellasi asennettuna mitään erityisiä ohjelmia, eikä sinun myöskään tarvitse asentaa tai ladata mitään SDK:ta lukuunottamatta. SDK sisältää _php8-tulkin_ sekä _php-devausserverin_.
+{: .message-box.info data-title="Info" }
 
 ## Step 2. Lataa Sivujetti & luo sivustolle kansio
 
-<span class="bg-highlight">Lataa</span> `sivujetti-x.x.x.zip` osoitteesta [github.com/sivujetti/sivujetti/releases](https://github.com/sivujetti/sivujetti/releases) (kohdasta Assets).
+<span class="bg-highlight">Lataa</span> `sivujetti-x.x.x.zip` osoitteesta [github.com/sivujetti/sivujetti/releases](https://github.com/sivujetti/sivujetti/releases) (Assets -osion alta).
 
 <span class="bg-highlight">Pura</span> `sivujetti-x.x.x.zip` Lataukset-kansioon.
 
@@ -61,11 +60,16 @@ SivujettiSDK on zip-paketti, joka sisältää kaiken tarvittavan Sivujetti-sivus
 
 ## Step 3. Käynnistä devausserveri
 
-<span class="bg-highlight">Siirry</span> kansioon johon purit sdk-zipin komennolla `cd ~/Documents/sivujetti-sdk-x.x.x/`.
+<span class="bg-highlight">Siirry</span> kansioon johon purit sdk-zipin komennolla `cd ~/Dokumentit/sivujetti-sdk-x.x.x/`.
 
-<span class="bg-highlight">Käynnistä</span> serveri komennolla `php/bin/php -c php/conf/php.ini -S localhost:8080 -t ~/Dokumentit/hello-sivujetti`.
+<span class="bg-highlight">Käynnistä</span> serveri komennolla `php/bin/php -S localhost:8080 -t ~/Dokumentit/hello-sivujetti -c php/conf/php.ini`.
+
+Mikäli macos ei anna ajaa ohjelmaa, klikkaa "Peruuta", ja avaa `php/bin/php`-tiedosto manuaalisesti hiiren oikealla napilla. Klikkaa "Avaa", sulje avautuva terminaali ja suorita edellinen steppi uudestaan.
+{: .message-box.info data-title="Info" }
 
 <span class="bg-highlight">Avaa</span> selain osoittessa [http://localhost:8080/index.php?q=/](http://localhost:8080/index.php?q=/) (sivusto), [http://localhost:8080/index.php?q=/_edit](http://localhost:8080/index.php?q=/_edit) (muokkaustila).
+
+Kun et enää tarvitse serveriä, voit sammuttaa sen näppäinyhdistelmällä `ctrl + c` komentoriviohjelmassa, jossa käynnistit sen.
 
 ## Yhteenveto
 
