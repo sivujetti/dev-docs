@@ -56,7 +56,7 @@ SivujettiSDK on zip-paketti, joka sisältää kaiken tarvittavan Sivujetti-sivus
 
 <span class="bg-highlight">Avaa</span> komentoriviohjelma (`⌘ + väli`, hae nimellä "terminal")
 
-<span class="bg-highlight">Asenna</span> oletussisältö komennolla `~/Dokumentit/sivujetti-sdk-x.x.x/php/bin/php ~/Dokumentit/hello-sivujetti/backend/cli.php install-from-dir basic-site`.
+<span class="bg-highlight">Asenna</span> oletussisältö komennolla `~/Dokumentit/sivujetti-sdk-x.x.x/php/bin/php ~/Dokumentit/hello-sivujetti/backend/cli.php install-from-dir basic-site kayttajanimi kayttajan@maili.com kayttajansalasana`.
 
 ## Step 3. Käynnistä devausserveri
 
@@ -67,7 +67,7 @@ SivujettiSDK on zip-paketti, joka sisältää kaiken tarvittavan Sivujetti-sivus
 Mikäli macos ei anna ajaa ohjelmaa, klikkaa "Peruuta", ja avaa `php/bin/php`-tiedosto manuaalisesti hiiren oikealla napilla. Klikkaa "Avaa", sulje avautuva terminaali ja suorita edellinen steppi uudestaan.
 {: .message-box.info data-title="Info" }
 
-<span class="bg-highlight">Avaa</span> selain osoittessa [http://localhost:8080/index.php?q=/](http://localhost:8080/index.php?q=/) (sivusto), [http://localhost:8080/index.php?q=/_edit](http://localhost:8080/index.php?q=/_edit) (muokkaustila).
+<span class="bg-highlight">Avaa</span> selain osoittessa [http://localhost:8080/index.php?q=/](http://localhost:8080/index.php?q=/) (sivusto), [http://localhost:8080/index.php?q=/jet-login](http://localhost:8080/index.php?q=/jet-login) (muokkaustila).
 
 Kun et enää tarvitse serveriä, voit sammuttaa sen näppäinyhdistelmällä `ctrl + c` komentoriviohjelmassa, jossa käynnistit sen.
 
