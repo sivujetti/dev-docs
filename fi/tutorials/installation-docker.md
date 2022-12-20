@@ -25,7 +25,7 @@ Docker Desktop tulisi olla jo asennettuna ja käynnissä koneellasi.
 
 ### sivujetti-docker
 
-<span class="bg-highlight">Lataa</span> `sivujetti-docker-x.x.x.zip` osoitteesta [github.com/sivujetti/sivujetti-docker/releases](https://github.com/sivujetti/sivujetti-docker/releases) (Assets -osion alta).
+<span class="bg-highlight">Lataa</span> [sivujetti-docker-0.1.0.zip](https://github.com/sivujetti/sivujetti-docker/releases/download/sivujetti-docker-0.1.0/sivujetti-docker-0.1.0.zip).
 
 <span class="bg-highlight">Pura</span> lataamasi zipin sisältö `Dokumentit/sivujetti-docker` -kansioon. Tällöin kansiorakenne pitäisi näyttää tältä:
 {: .dm-macos }
@@ -50,7 +50,7 @@ Docker Desktop tulisi olla jo asennettuna ja käynnissä koneellasi.
 
 ### Sivujetti
 
-<span class="bg-highlight">Lataa</span> `sivujetti-x.x.x.zip` osoitteesta [github.com/sivujetti/sivujetti/releases](https://github.com/sivujetti/sivujetti/releases) (Assets -osion alta), pura se edellisen kohdan kansioon. <span class="bg-highlight">Siirrä</span> sen `public`-kansio sekä `index.php`-tiedosto edellisen stepin `to-htdocs` -kansioon, ja `backend` -kansion sisältö kokonaisuudessaan `to-outside-htdocs` -kansioon. Tämän jälkeen kansiorakenne pitäisi olla:
+<span class="bg-highlight">Lataa</span> [sivujetti-0.12.0.zip](https://github.com/sivujetti/sivujetti/releases/download/sivujetti-0.12.0/sivujetti-0.12.0.zip), ja pura se edellisen kohdan kansioon. <span class="bg-highlight">Siirrä</span> sen `public`-kansio sekä `index.php`-tiedosto edellisen stepin `to-htdocs` -kansioon, <span class="bg-highlight">ja</span> `backend` -kansion sisältö kokonaisuudessaan `to-outside-htdocs` -kansioon. Tämän jälkeen kansiorakenne pitäisi olla:
 ```
 /Dokumentit
     ...
@@ -92,7 +92,7 @@ Docker Desktop tulisi olla jo asennettuna ja käynnissä koneellasi.
 
 <div></div>
 
-Tämä komento luo kontin, jonka sisällä tapahtuvat muutokset ei vaikuta edellisen 1. stepin lokaaleihin tiedostoihin. Jos haluat muuttaa esim. jotain php-tiedostoa kontin sisällä, se tulee tehdä komentorivin kautta (`docker exec`).
+Tämä komento luo kontin, jonka sisällä tapahtuvat muutokset ei vaikuta 1. stepin lokaaleihin tiedostoihin. Jos haluat muuttaa esim. jotain php-tiedostoa kontin sisällä, se tulee tehdä komentorivin kautta (`docker exec`).
 {: .message-box.info .dm-macos data-title="Info" }
 
 <span class="bg-highlight">Aja</span> komento `docker run -it -d -p 127.0.0.1:3000:8080 sivujetti-docker`
@@ -101,7 +101,7 @@ Tämä komento luo kontin, jonka sisällä tapahtuvat muutokset ei vaikuta edell
 
 <div></div>
 
-Tämä komento taas luo kontin, jossa sen sisällä tapahtuvat muutokset synkkautuu em. stepin lokaalien kansioiden kanssa, ja vice versa. Tällöin voit muokkailla esim. teematiedostoja ilman komentoriviä.
+Tämä komento taas luo kontin, jossa sen sisällä tapahtuvat muutokset synkkautuu 1. stepin lokaalien kansioiden kanssa, ja vice versa. Tällöin voit muokkailla esim. teematiedostoja ilman komentoriviä.
 {: .message-box.info .dm-macos data-title="Info" }
 
 <span class="bg-highlight">Aja</span> komento
@@ -125,7 +125,7 @@ docker run -it -d -p 127.0.0.1:3000:8080\
 
 <span class="bg-highlight">Ota ylös</span> komennon printtaaman merkkijonon alku (esim. `5e888fd9627b3e28195c18a9f6f35cb91fd025e398245d968cc8fdcc8e4527ba` -> `5e88`).
 
-## Step 4.1
+## Step 4.1.
 
 Tämä on väliaikainen steppi, ja poistuu kunhan Sivujetillä on "oikea" installeri.
 {: .message-box.message data-title="Note" }
@@ -141,7 +141,7 @@ Tämä on väliaikainen steppi, ja poistuu kunhan Sivujetillä on "oikea" instal
 Jos edellinen komento ei suostu toimimaan, koita ajaa se ilman viimeisin kohtaa (`docker cp temp-patch.php 5e88:/var/www/sivujetti-backend/run-this-once.php && docker exec -it 5e88 php /var/www/sivujetti-backend/run-this-once.php`)
 {: .message-box.info data-title="Info" }
 
-## Step 4.2
+## Step 4.2.
 
 <span class="bg-highlight">Asenna</span> tyhjä teema komennolla `docker exec -it 5e88 php /var/www/sivujetti-backend/cli.php install-from-dir empty sivujettiuser user@email.com userpass - - - - /`
 
@@ -187,7 +187,7 @@ Kaksi ensimmäistä ohjetta on hyödyllisiä silloin, jos loit kontin ilman tied
 - Avaa sivuston tietokanta sqlite-repliin
     - `sqlite3 sivujetti-backend/site/my-site.db`
 - Tee jotain
-    - `select * from Pages;`
+    - `select title, slug from Pages;`
 - Poistu sqlite-replistä
     - `.q`
 - Poistu kontista
