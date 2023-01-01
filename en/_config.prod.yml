@@ -64,7 +64,7 @@ search_tokenizer_separator: /[\s/]+/
 heading_anchors: true
 
 # Footer content appears at the bottom of every page's main content
-footer_content: "Copyright &copy; 2021-2022 <a href=\"https://github.com/ut4\">ut4</a>"
+footer_content: "Copyright &copy; 2021-2023 <a href=\"https://github.com/ut4\">ut4</a>"
 
 # Aux links for the upper right navigation
 aux_links:
