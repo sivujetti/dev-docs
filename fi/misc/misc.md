@@ -105,7 +105,7 @@ Uppaa tiedosto `${sivustonPolkuPalvelimella}site/templates/block-listing-jokin-n
 </div>
 ```
 
-## Step 2:
+### Step 2:
 ```php
 <?php declare(strict_types=1);
 
@@ -122,5 +122,24 @@ class Site implements UserSiteInterface {
         ...
     }
 }
+
+```
+
+## I_LIKE_TES
+
+:)
+
+```diff
+ 
+ define("SIVUJETTI_INDEX_PATH", str_replace("\\", "/", __DIR__) . "/");
+ define("SIVUJETTI_BACKEND_PATH", SIVUJETTI_INDEX_PATH . "backend/");
+ define("SIVUJETTI_SITE_PATH", SIVUJETTI_BACKEND_PATH . "site/");
+ define("SIVUJETTI_PLUGINS_PATH", SIVUJETTI_BACKEND_PATH . "plugins/");
++define("I_LIKE_TES", 1);
+ 
+ // Do not edit below this line -------------------------------------------------
+ 
+ $config = require "config.php";
+ $loader = require SIVUJETTI_BACKEND_PATH . "vendor/autoload.php";
 
 ```
