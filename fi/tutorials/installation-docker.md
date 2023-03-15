@@ -50,7 +50,7 @@ Docker Desktop tulisi olla jo asennettuna ja käynnissä koneellasi.
 
 ### Sivujetti
 
-<span class="bg-highlight">Lataa</span> [sivujetti-0.12.1.zip](https://github.com/sivujetti/sivujetti/releases/download/sivujetti-0.12.1/sivujetti-0.12.1.zip), ja pura se edellisen kohdan kansioon. <span class="bg-highlight">Siirrä</span> sen `public`-kansio sekä `index.php`-tiedosto edellisen stepin `to-htdocs` -kansioon, <span class="bg-highlight">ja</span> `backend` -kansion sisältö kokonaisuudessaan `to-outside-htdocs` -kansioon. Tämän jälkeen kansiorakenne pitäisi olla:
+<span class="bg-highlight">Lataa</span> [sivujetti-0.13.0.zip](https://github.com/sivujetti/sivujetti/releases/download/sivujetti-0.13.0/sivujetti-0.13.0.zip), ja pura se edellisen kohdan kansioon. <span class="bg-highlight">Siirrä</span> sen `public`-kansio sekä `index.php`-tiedosto edellisen stepin `to-htdocs` -kansioon, <span class="bg-highlight">ja</span> `backend` -kansion sisältö kokonaisuudessaan `to-outside-htdocs` -kansioon. Tämän jälkeen kansiorakenne pitäisi olla:
 ```
 /Dokumentit
     ...

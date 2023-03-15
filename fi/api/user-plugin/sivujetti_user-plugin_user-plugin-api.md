@@ -53,8 +53,8 @@ final class JetForms implements UserPluginInterface {
     ...
     public function __construct(UserPluginAPI $api) {
         ...
-        $api->registerHttpRoute("POST", "/plugins/jet-forms/submits/[w:blockId]/[w:pageSlug]",
-            SubmitsController::class, "handleSubmit"
+        $api->registerHttpRoute("POST", "/plugins/jet-forms/submissions/[w:blockId]/[w:pageSlug]",
+            SubmissionsController::class, "handleSubmission"
         );
     }
 }

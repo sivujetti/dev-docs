@@ -16,6 +16,6 @@ Rajapinta lisäosien pääluokille (`${SIVUJETTI_PLUGINS_PATH}MyPrefixMyPlugin/M
 interface UserPluginInterface {
 
     /* Metodit */
-    public __construct(UserPluginAPI $api);
+    public __construct(UserPluginAPI $api)
 }
 ```

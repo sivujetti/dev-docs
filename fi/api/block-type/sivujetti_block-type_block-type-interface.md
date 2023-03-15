@@ -16,6 +16,6 @@ Rajapinta lohkotyypeille, kuten `HeadingBlockType`, `ButtonBlockType` tai `Conta
 interface BlockTypeInterface {
 
     /* Metodit */
-    public defineProperties(PropertiesBuilder $builder): ArrayObject<BlockProperty>;
+    public defineProperties(PropertiesBuilder $builder): ArrayObject<BlockProperty>
 }
 ```

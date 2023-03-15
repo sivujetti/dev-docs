@@ -16,6 +16,6 @@ Rajapinta sivustojen pääluokille (`${SIVUJETTI_SITE_PATH}Site.php`).
 interface UserSiteInterface {
 
     /* Metodit */
-    public __construct(UserSiteAPI $api);
+    public __construct(UserSiteAPI $api)
 }
 ```

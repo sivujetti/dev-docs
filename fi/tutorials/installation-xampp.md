@@ -28,6 +28,9 @@ Käynnistä MAMPin serveri on päällä, ja varmista että sen PHP-tulkin versio
 zend_extension="/Applications/MAMP/bin/php/php8.x.x/lib/php/extensions/no-debug-non-zts-yyyymmdd/xdebug.so"
 ;xdebug.mode=debug
 ;xdebug.start_with_request=yes
+
+; kommentoi myös tämä jos php:n ajaminen komentoriviltä tuntuu hitaalta
+; extension=imap.so
 ```
 {: .dm-macos }
 
@@ -36,7 +39,7 @@ Käynnistä Apache XAMPPin hallintapaneelista. Tsekkaa että `c:\xampp\php\php.i
 
 ## Step 1. Lataa Sivujetti & luo projektikansio
 
-<span class="bg-highlight">Lataa</span> [sivujetti-0.12.1.zip](https://github.com/sivujetti/sivujetti/releases/download/sivujetti-0.12.1/sivujetti-0.12.1.zip).
+<span class="bg-highlight">Lataa</span> [sivujetti-0.13.0.zip](https://github.com/sivujetti/sivujetti/releases/download/sivujetti-0.13.0/sivujetti-0.13.0.zip).
 
 <span class="bg-highlight">Luo</span> uudelle sivustolle työkansio (`/Applications/MAMP/htdocs/hello-sivujetti/`) ja <span class="bg-highlight">pura</span> lataamasi zipin sisältö sinne kokonaisuudessaan. Tällöin kansiorakenne pitäisi näyttää tältä:
 {: .dm-macos }
@@ -113,6 +116,9 @@ Voit käyttää myös olemassa olevaa tietokantakäyttäjää root & root:n sija
 <span class="bg-highlight">Aja komento</span> `php backend/cli.php install-from-dir empty sivujettiuser user@email.com userpass mysql hellosivujetti root root /hello-sivujetti/`
 {: .dm-macos }
 
+(korvaa `... mysql hellosivujetti ...` -> `... mysql:127.0.0.1:8889 hellosivujetti ...` mikäli käytät MAMPin oletusportteja)
+{: .dm-macos }
+
 Mikäli terminaali sanoo että `command not found: php`, aja komento `alias php='/Applications/MAMP/bin/php/php8.0.0/bin/php'` ja yritä sitten uudelleen.
 {: .message-box.info .dm-macos data-title="Info" }
 
@@ -128,7 +134,7 @@ Jos komento tulostaa virheviestin, joka sanoo ettei sodium-lisäosaa voitu ladat
 
 <span class="bg-highlight">Avaa</span> selain osoittessa [http://localhost/hello-sivujetti/index.php?q=/](http://localhost/hello-sivujetti/index.php?q=/) (sivusto), [http://localhost/hello-sivujetti/index.php?q=/jet-login](http://localhost/hello-sivujetti/index.php?q=/jet-login) (muokkaustila). Käyttäjätunnus ja salasana samat, kuin edellisessä stepissä (sivujettiuser userpass).
 
-Osoittessa voi olla mukana myös portti [http://localhost:8080/hello-sivujetti/index.php?q=/](http://localhost:8080/hello-sivujetti/index.php?q=/) ja [http://localhost:8080/hello-sivujetti/index.php?q=/jet-login](http://localhost:8080/hello-sivujetti/index.php?q=/jet-login) XAMPP/MAMPin asetuksista riippuen.
+Osoittessa voi olla mukana myös portti [http://localhost:8888/hello-sivujetti/index.php?q=/](http://localhost:8888/hello-sivujetti/index.php?q=/) ja [http://localhost:8888/hello-sivujetti/index.php?q=/jet-login](http://localhost:8888/hello-sivujetti/index.php?q=/jet-login) XAMPP/MAMPin asetuksista riippuen.
 {: .message-box.info data-title="Info" }
 
 Uusi Sivujetti-sivustosi on nyt asennettu. Pidä hauskaa!
