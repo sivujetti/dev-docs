@@ -1,15 +1,15 @@
 ---
 layout: default
-title:  Asennus lokaalisti Docker-konttiin
+title:  Asennus lokaalisti Docker
 parent: Asennus
 grand_parent: Tutoriaalit
 nav_order: 2
 ---
 
-# Asennus lokaalisti Docker-konttiin
+# Asennus lokaalisti Docker
 {: .no_toc }
 
-Tässä tutoriaalissa asennat Sivujetti -sivuston Alpine Linux -pohjaiseen Docker-konttiin. Käyttöjärjestelmäni johon Docker Desktop on asennettu on
+Tässä tutoriaalissa asennat Sivujetti -sivuston konttiympäristöön käyttäen Docker( Desktop)ia ja Alpine Linux -pohjaista imagea. Käyttöjärjestelmäni johon Docker Desktop on asennettu on
 
 <div id="tutorial-os-selector" class="mb-6">
 <button onclick="sivujettiDocs.showInstallationTutorialInstructionsFor(event, 'macos')" type="button" name="button" class="btn selected">Macos</button>
@@ -25,7 +25,7 @@ Docker Desktop tulisi olla jo asennettuna ja käynnissä koneellasi.
 
 ### sivujetti-docker
 
-<span class="bg-highlight">Lataa</span> [sivujetti-docker-0.1.0.zip](https://github.com/sivujetti/sivujetti-docker/releases/download/sivujetti-docker-0.1.0/sivujetti-docker-0.1.0.zip).
+<span class="bg-highlight">Lataa</span> [sivujetti-docker-0.2.0.zip](https://github.com/sivujetti/sivujetti-docker/releases/download/sivujetti-docker-0.2.0/sivujetti-docker-0.2.0.zip).
 
 <span class="bg-highlight">Pura</span> lataamasi zipin sisältö `Dokumentit/sivujetti-docker` -kansioon. Tällöin kansiorakenne pitäisi näyttää tältä:
 {: .dm-macos }
@@ -50,7 +50,7 @@ Docker Desktop tulisi olla jo asennettuna ja käynnissä koneellasi.
 
 ### Sivujetti
 
-<span class="bg-highlight">Lataa</span> [sivujetti-0.13.0.zip](https://github.com/sivujetti/sivujetti/releases/download/sivujetti-0.13.0/sivujetti-0.13.0.zip), ja pura se edellisen kohdan kansioon. <span class="bg-highlight">Siirrä</span> sen `public`-kansio sekä `index.php`-tiedosto edellisen stepin `to-htdocs` -kansioon, <span class="bg-highlight">ja</span> `backend` -kansion sisältö kokonaisuudessaan `to-outside-htdocs` -kansioon. Tämän jälkeen kansiorakenne pitäisi olla:
+<span class="bg-highlight">Lataa</span> [sivujetti-0.14.0.zip](https://github.com/sivujetti/sivujetti/releases/download/sivujetti-0.14.0/sivujetti-0.14.0.zip), ja pura se edellisen kohdan kansioon. <span class="bg-highlight">Siirrä</span> sen `public`-kansio sekä `index.php`-tiedosto edellisen stepin `to-htdocs` -kansioon, <span class="bg-highlight">ja</span> `backend` -kansion sisältö kokonaisuudessaan `to-outside-htdocs` -kansioon. Tämän jälkeen kansiorakenne pitäisi olla:
 ```
 /Dokumentit
     ...
@@ -72,6 +72,8 @@ Docker Desktop tulisi olla jo asennettuna ja käynnissä koneellasi.
 
 ## Step 2. Luo image
 
+Tämä steppi luo koneellesi uuden imagen `sivujetti-docker`, jolla voit luoda useita kontteja.
+
 <span class="bg-highlight">Avaa</span> komentoriviohjelma (`⌘ + väli`, hae nimellä "terminal")
 {: .dm-macos }
 
@@ -87,6 +89,8 @@ Docker Desktop tulisi olla jo asennettuna ja käynnissä koneellasi.
 <span class="bg-highlight">Luo</span> Docker image ajamalla komento `docker build -t sivujetti-docker .`
 
 ## Step 3. Luo ja käynnistä kontti
+
+Tämä steppi luo uuden kontin, tallentaa sen koneellesi ja käynnistää sen. Jos myöhemmin sammutat Docker Desktopin, ja haluat käynnistää kontin uudelleen, katso [Muita ohjeita > Kontin käynnistäminen myöhemmin](#kontin-käynnistäminen-myöhemmin).
 
 ### Vaihtoehto 1: Ilman tiedostojen synkkausta
 
@@ -138,7 +142,7 @@ Tämä on väliaikainen steppi, ja poistuu kunhan Sivujetillä on "oikea" instal
 `docker cp temp-patch.php 5e88:/var/www/sivujetti-backend/run-this-once.php && docker exec -it 5e88 /bin/sh -c "php /var/www/sivujetti-backend/run-this-once.php && rm /var/www/sivujetti-backend/run-this-once.php"`
 {: .dm-windows .d-none }
 
-Jos edellinen komento ei suostu toimimaan, koita ajaa se ilman viimeisin kohtaa (`docker cp temp-patch.php 5e88:/var/www/sivujetti-backend/run-this-once.php && docker exec -it 5e88 php /var/www/sivujetti-backend/run-this-once.php`)
+Jos edellinen komento ei suostu toimimaan, koita ajaa se ilman viimeisintä osaa (`docker cp temp-patch.php 5e88:/var/www/sivujetti-backend/run-this-once.php && docker exec -it 5e88 php /var/www/sivujetti-backend/run-this-once.php`)
 {: .message-box.info data-title="Info" }
 
 ## Step 4.2.
@@ -158,13 +162,14 @@ Uusi Sivujetti-sivustosi on nyt asennettu kontin sisään. Pidä hauskaa!
 Tässä tutoriaalissa:
 
 - Latasit sivujetti-dockerin ja sivujetin uusimman version
-- Loit kontin imagesta
+- Loit imagen `sivujetti-docker`
+- Loit uuden kontin em. imagella
 - Asensit tyhjän teeman konttiin
 - Avasit kontissa pyörivän sivuston selaimeen
 
 ## Muita ohjeita
 
-Kaksi ensimmäistä ohjetta on hyödyllisiä silloin, jos loit kontin ilman tiedostojen synkkausta (jolloin ainoa tapa muuttaa tiedostoja kontin sisällä on komentorivin kautta).
+Kolme ensimmäistä ohjetta on hyödyllisiä silloin, jos loit kontin ilman tiedostojen synkkausta (jolloin ainoa tapa muuttaa tiedostoja kontin sisällä on komentorivin kautta).
 
 ### Tiedostojen muokkaus kontin sisällä
 
@@ -208,6 +213,15 @@ Jos haluat sivuston, ja sinne tekemäsi muutokset kontista ulos, voit tehdä sen
     `docker exec -it 5e88 rm sivujetti-backend/exported.tar`
 
 Nyt sivusto kokonaisuudessaan löytyy `Lataukset` kansiosta koneeltasi.
+
+### Kontin käynnistäminen myöhemmin
+
+Kontit sammuu itsekseen, kun Docker Desktop suljetaan. Jos haluat käynnistää luomasi kontin myöhemmin, voit skipata tutoriaalin kaikki stepit ja ajaa suoraan:
+
+`docker start 5e88`
+
+Jos et enää muista kontin id:tä, voit etsiä sen `docker ps -a` tulostamasta listasta.
+{: .message-box.info data-title="Info" }
 
 ### Kontin poistaminen
 

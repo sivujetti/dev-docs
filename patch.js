@@ -24,14 +24,14 @@ recurse(fs.readdirSync(fiContentDirPath, {withFileTypes: true}), fiDirPath, (fsE
     replace(fsEnt, baseDir, [
         repDefault,
         repCustomUrls,
-        {search: '"/tutorials/', replace: '"/dev-docs/fi/tutorials/'},
+        {search: /"\/tutorials\//g, replace: '"/dev-docs/fi/tutorials/'},
     ]);
 });
 recurse(fs.readdirSync(enContentDirPath, {withFileTypes: true}), enDirPath, (fsEnt, baseDir) => {
     replace(fsEnt, baseDir, [
         {search: /\/en\/assets\//g, replace: '/assets/'},
         repCustomUrls,
-        {search: '"/tutorials/', replace: '"/dev-docs/en/tutorials/'},
+        {search: /"\/tutorials\//g, replace: '"/dev-docs/en/tutorials/'},
     ]);
 });
 
