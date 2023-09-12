@@ -39,7 +39,7 @@ Käynnistä Apache XAMPPin hallintapaneelista. Tsekkaa että `c:\xampp\php\php.i
 
 ## Step 1. Lataa Sivujetti & luo projektikansio
 
-<span class="bg-highlight">Lataa</span> [sivujetti-0.14.0.zip](https://github.com/sivujetti/sivujetti/releases/download/sivujetti-0.14.0/sivujetti-0.14.0.zip).
+<span class="bg-highlight">Lataa</span> [sivujetti-0.15.0.zip](https://github.com/sivujetti/sivujetti/releases/download/sivujetti-0.15.0/sivujetti-0.15.0.zip).
 
 <span class="bg-highlight">Luo</span> uudelle sivustolle työkansio (`/Applications/MAMP/htdocs/hello-sivujetti/`) ja <span class="bg-highlight">pura</span> lataamasi zipin sisältö sinne kokonaisuudessaan. Tällöin kansiorakenne pitäisi näyttää tältä:
 {: .dm-macos }
@@ -75,13 +75,13 @@ Käynnistä Apache XAMPPin hallintapaneelista. Tsekkaa että `c:\xampp\php\php.i
 <span class="bg-highlight">Siirry</span> kansioon johon purit sdk-zipin komennolla `cd c:\xampp\htdocs\hello-sivujetti\`.
 {: .dm-windows .d-none }
 
-<span class="bg-highlight">Asenna</span> tyhjä teema komennolla `php backend/cli.php install-from-dir empty sivujettiuser user@email.com userpass - - - - /hello-sivujetti/`
+<span class="bg-highlight">Asenna</span> tyhjä teema komennolla `php backend/cli.php install-from-dir minimal sivujettiuser user@email.com userpass - - - - /hello-sivujetti/`
 {: .dm-macos }
 
 Mikäli terminaali sanoo että `command not found: php`, aja komento `alias php='/Applications/MAMP/bin/php/php8.0.0/bin/php'` ja yritä sitten uudelleen.
 {: .message-box.info .dm-macos data-title="Info" }
 
-<span class="bg-highlight">Asenna</span> oletussisältö komennolla `c:\xampp\php\php.exe backend\cli.php install-from-dir empty sivujettiuser user@email.com userpass - - - - /hello-sivujetti/`
+<span class="bg-highlight">Asenna</span> oletussisältö komennolla `c:\xampp\php\php.exe backend\cli.php install-from-dir minimal sivujettiuser user@email.com userpass - - - - /hello-sivujetti/`
 {: .dm-windows .d-none }
 
 Jos komento tulostaa virheviestin, joka sanoo ettei sodium-lisäosaa voitu ladata, <span class="bg-highlight">kopioi</span> `c:\xampp\php\libsodium.dll` kansioon `c:\xampp\apache\bin\libsodium.dll` ja käynnistä Apache uudestaan.
@@ -113,16 +113,16 @@ Voit käyttää myös olemassa olevaa tietokantakäyttäjää root & root:n sija
 <span class="bg-highlight">Siirry</span> kansioon johon purit sdk-zipin komennolla `cd c:\xampp\htdocs\hello-sivujetti\`.
 {: .dm-windows .d-none }
 
-<span class="bg-highlight">Aja komento</span> `php backend/cli.php install-from-dir empty sivujettiuser user@email.com userpass mysql hellosivujetti root root /hello-sivujetti/`
+<span class="bg-highlight">Aja komento</span> `php backend/cli.php install-from-dir minimal sivujettiuser user@email.com userpass mysql:127.0.0.1:8889 hellosivujetti root root /hello-sivujetti/`
 {: .dm-macos }
 
-(korvaa `... mysql hellosivujetti ...` -> `... mysql:127.0.0.1:8889 hellosivujetti ...` mikäli käytät MAMPin oletusportteja)
+(korvaa `... mysql:127.0.0.1:8889 hellosivujetti ...` -> `... mysql hellosivujetti ...` jos käytät MAMP:in asetuksissa portteja 80 ja 3306)
 {: .dm-macos }
 
 Mikäli terminaali sanoo että `command not found: php`, aja komento `alias php='/Applications/MAMP/bin/php/php8.0.0/bin/php'` ja yritä sitten uudelleen.
 {: .message-box.info .dm-macos data-title="Info" }
 
-<span class="bg-highlight">Aja komento</span> `c:\xampp\php\php.exe backend\cli.php install-from-dir empty sivujettiuser user@email.com userpass mysql hellosivujetti root - /hello-sivujetti/`
+<span class="bg-highlight">Aja komento</span> `c:\xampp\php\php.exe backend\cli.php install-from-dir minimal sivujettiuser user@email.com userpass mysql hellosivujetti root - /hello-sivujetti/`
 {: .dm-windows .d-none }
 
 Jos komento tulostaa virheviestin, joka sanoo ettei sodium-lisäosaa voitu ladata, <span class="bg-highlight">kopioi</span> `c:\xampp\php\libsodium.dll` kansioon `c:\xampp\apache\bin\libsodium.dll` ja käynnistä Apache uudestaan.

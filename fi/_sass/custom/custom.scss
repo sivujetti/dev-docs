@@ -1,3 +1,37 @@
+th {
+    text-align: left;
+}
+.footnotes {
+    font-size: 14px;
+    margin-top: 1.4rem;
+    color: #5c5962b3;
+}
+
+.site-logo {
+    width: 70%;
+    height: 70%;
+    position: relative;
+}
+.site-logo:after {
+    content: "Docs";
+    color: #959396;
+    position: absolute;
+    left: 80px;
+    bottom: -8px;
+    font-size: .4em;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+@media (min-width: 50rem) {
+    .site-logo {
+        width: 60%;
+        height: 60%;
+    }
+    .site-logo:after {
+        left: 77px;
+    }
+}
+
 .bg-highlight {
     background-color: #fff3b5;
 }
@@ -42,8 +76,6 @@ p.message-box.error:before {
     background-color: rgba(#e94c4c, .05);
 }
 
-
-
 .tabs {
     margin-top: 2rem;
 }
@@ -72,12 +104,4 @@ p.message-box.error:before {
     margin-top: -1px;
     padding-top: .8rem;
     margin-bottom: 3rem;
-}
-
-
-
-.footnotes {
-    font-size: 14px;
-    margin-top: 1.4rem;
-    color: #5c5962b3;
 }

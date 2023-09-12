@@ -54,12 +54,13 @@ $builder->newProperty("numColumns", $builder::DATA_TYPE_UINT);
 ```
 
 Tietotyypeillä on oletuksena seuraavat validaattorit:
+
 Tyypi | Validaattorit
 --- | ---
-"text" ($builder::DATA_TYPE_TEXT) | ["type", "string"]<br> ["maxLength", 1024]
-"json" | ["type", "string"]<br>["maxLength", 256000]
-"int" | ["type", "number"]
-"uint" ($builder::DATA_TYPE_UINT) | ["type", "number"]<br>["min", 0]
+`"text"` (`$builder::DATA_TYPE_TEXT`) | `["type", "string"]`<br>`["maxLength", 1024]`
+`"json"` | `["type", "string"]`<br>`["maxLength", 256000]`
+`"int"` | `["type", "number"]`
+`"uint"` (`$builder::DATA_TYPE_UINT`) | `["type", "number"]`<br>`["min", 0]`
 
 Jos haluat yliajaa oletusvalidaattorien asetuksia, korvaa `$builder->newProperty("year", $builder::DATA_TYPE_TEXT)` -> `$builder->newProperty("year")->dataType($builder::DATA_TYPE_TEXT, validationRules: [["maxLength", 4]])`.
 
@@ -92,5 +93,5 @@ $builder
 #### Signature
 
 ```php
-public function getResult(): \ArrayObjectt<int, BlockProperty>
+public function getResult(): \ArrayObject<int, BlockProperty>
 ```

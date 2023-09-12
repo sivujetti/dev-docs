@@ -9,9 +9,9 @@ nav_order: 6
 ...
 {: .fs-6 .fw-300 }
 
-## Kuinka mutatoin sivun sisältöä backendissä?
+## ^^text^^
 
-Jos haluat muuttaa sivun sisältöä ohjelmallisesti backendissä ennen [renderöintiä](https://github.com/sivujetti/sivujetti/blob/d22a947a09ecc0473fb4de37a88770e9674645e8/backend/sivujetti/src/Page/PagesController.php#L370) (esim. järjestää `Listaus`-sisällön sivujen järjestystä jonkin tietyn logiikan mukaan), voit tehdä sen `ON_PAGE_BEFORE_RENDER`-eventissä [Site](../api/user-site/sivujetti_user-site_user-site-api.html)-luokassa:
+^^text^^
 
 ```php
 <?php declare(strict_types=1);
@@ -31,13 +31,13 @@ class Site implements UserSiteInterface {
         // ...
         $api->on($api::ON_PAGE_BEFORE_RENDER, function(Page $page) {
             if ($page->slug !== "/some-page")
-                return; // ei sivu jonka sisältöä halutaan muokata
+                return; // ^^text^^
 
             $someListing = BlockTree::findBlock($page->blocks, fn($b) => $b->type === Block::TYPE_LISTING);
             if (!$someListing)
-                return; // "/some-page":sta ei löytynyt yhtään Listaus -sisältölohkoa
+                return; // ^^text^^
 
-            // Tämä esimerkki siirtää listauksen ensimmäisen sivun aina viimeiseksi
+            // ^^text^^
             $first = $someListing->__pages[0];
             $allButFirst = array_slice($someListing->__pages, 1);
             $someListing->__pages = [...$allButFirst, $first];
@@ -47,9 +47,9 @@ class Site implements UserSiteInterface {
 
 ```
 
-## Kuinka muutan sivun &lt;head&gt;-tagin sisältöä backendissä?
+## ^^text^^
 
-Näin:
+^^text^^
 
 ```php
 <?php declare(strict_types=1);
@@ -78,14 +78,13 @@ class Site implements UserSiteInterface {
 
 ```
 
-## Kuinka lisään custom-templaatin listaussisällölle?
+## ^^text^^
 
-1. Uploadaa tiedosto `${sivustonPolkuPalvelimella}site/templates/` kansioon palvelimella
-1. Rekisteröi edellisen stepin tiedosto `Site`-luokassa
+^^text^^
 
 ### Step 1:
 
-Uppaa tiedosto `${sivustonPolkuPalvelimella}site/templates/block-listing-jokin-nimi.tmpl.php` (esim. `/var/www/sivujetti-backend/site/templates/block-listing-links-only.tmpl.php`) ja kirjoita sen sisälläksi:
+^^text^^
 
 ```php
 <div
@@ -105,7 +104,7 @@ Uppaa tiedosto `${sivustonPolkuPalvelimella}site/templates/block-listing-jokin-n
         <li><p><?= $this->__("No %s found.", strtolower($props->__pageType->friendlyNamePlural)) ?></p></li>
     <?php endif; ?>
     </ul>
-    <?= $this->renderChildren($props); // mikäli tällä listaussisällöllä on lapsisisältöä ?>
+    <?= $this->renderChildren($props); // ^^text^^ ?>
 </div>
 ```
 
@@ -122,7 +121,7 @@ class Site implements UserSiteInterface {
      * @param \Sivujetti\UserSite\UserSiteAPI $api
      */
     public function __construct(UserSiteAPI $api) {
-        $api->registerBlockRenderer("block-listing-jokin-nimi", for: "Pages");
+        $api->registerBlockRenderer("block-listing-^^text^^", for: "Pages");
         ...
     }
 }

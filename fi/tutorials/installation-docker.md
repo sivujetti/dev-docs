@@ -50,7 +50,7 @@ Docker Desktop tulisi olla jo asennettuna ja käynnissä koneellasi.
 
 ### Sivujetti
 
-<span class="bg-highlight">Lataa</span> [sivujetti-0.14.0.zip](https://github.com/sivujetti/sivujetti/releases/download/sivujetti-0.14.0/sivujetti-0.14.0.zip), ja pura se edellisen kohdan kansioon. <span class="bg-highlight">Siirrä</span> sen `public`-kansio sekä `index.php`-tiedosto edellisen stepin `to-htdocs` -kansioon, <span class="bg-highlight">ja</span> `backend` -kansion sisältö kokonaisuudessaan `to-outside-htdocs` -kansioon. Tämän jälkeen kansiorakenne pitäisi olla:
+<span class="bg-highlight">Lataa</span> [sivujetti-0.15.0.zip](https://github.com/sivujetti/sivujetti/releases/download/sivujetti-0.15.0/sivujetti-0.15.0.zip), ja pura se edellisen kohdan kansioon. <span class="bg-highlight">Siirrä</span> sen `public`-kansio sekä `index.php`-tiedosto edellisen stepin `to-htdocs` -kansioon, <span class="bg-highlight">ja</span> `backend` -kansion sisältö kokonaisuudessaan `to-outside-htdocs` -kansioon. Tämän jälkeen kansiorakenne pitäisi olla:
 ```
 /Dokumentit
     ...
@@ -147,7 +147,7 @@ Jos edellinen komento ei suostu toimimaan, koita ajaa se ilman viimeisintä osaa
 
 ## Step 4.2.
 
-<span class="bg-highlight">Asenna</span> tyhjä teema komennolla `docker exec -it 5e88 php /var/www/sivujetti-backend/cli.php install-from-dir empty sivujettiuser user@email.com userpass - - - - /`
+<span class="bg-highlight">Asenna</span> tyhjä teema komennolla `docker exec -it 5e88 php /var/www/sivujetti-backend/cli.php install-from-dir minimal sivujettiuser user@email.com userpass - - - - /`
 
 Tässä kohtaaa konttiin pitäisi ilmestyä uusia tiedostoja teemalle, konfiguraatiolle sekä esim. tietokannalle. Jos loit kontin tiedostosynkkauksen kanssa, nämä uudet tiedostot pitäisi nyt näkyä myös lokaaleissa kansioissa (`to-htdocs` / `to-outside-htdocs`).
 

@@ -52,7 +52,7 @@ exclude:
 
 color_scheme: sivujetti
 
-logo: "/assets/images/sivujetti-logo.png"
+logo: "/assets/images/sivujetti-logo.webp"
 
 # Enable or disable the site search
 search_enabled: true

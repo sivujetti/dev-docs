@@ -6,7 +6,7 @@ Source code of Sivujetti developer docs website. Uses [jekyll](jekyllrb.com/).
 
 1. https://jekyllrb.com/docs/installation/
 1. cd fi
-    - `bundle exec jekyll serve --port 4000`
+    - `bundle exec jekyll serve`
     - http://localhost:4000
 1. cd en
     - `cp -R ../fi/_sass _sass`

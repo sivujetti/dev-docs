@@ -82,7 +82,7 @@ echo $api->getCurrentLang(); // "fi"
 
 ### enqueueCssFile()
 
-Sama kuin [UserSiteAPI::enqueueCssFile()](../user-site/sivujetti_user-site_user-site-api.html#enqueuecssfile), mutta hyväksyy vain tämän lisäosan slugifoidulla nimiavaruudella (`plugin-my-prefix-my-plugin`) alkavat urlit.
+Sama kuin [UserSiteAPI::enqueueCssFile()](../user-site/sivujetti_user-site_user-site-api.html#enqueuecssfile), mutta hyväksyy vain tämän lisäosan slugifioidulla nimiavaruudella (`plugin-my-prefix-my-plugin`) alkavat urlit.
 
 #### Signature
 
@@ -115,7 +115,7 @@ final class JetForms implements UserPluginInterface {
 
 ### enqueueJsFile()
 
-Sama kuin [UserSiteAPI::enqueueJsFile()](../user-site/sivujetti_user-site_user-site-api.html#enqueuejsfile), mutta hyväksyy vain tämän lisäosan slugifoidulla nimiavaruudella (`plugin-my-prefix-my-plugin`) alkavat urlit.
+Sama kuin [UserSiteAPI::enqueueJsFile()](../user-site/sivujetti_user-site_user-site-api.html#enqueuejsfile), mutta hyväksyy vain tämän lisäosan slugifioidulla nimiavaruudella (`plugin-my-prefix-my-plugin`) alkavat urlit.
 
 #### Signature
 
@@ -182,7 +182,7 @@ final class JetForms implements UserPluginInterface {
 
 ### enqueueEditAppJsFile()
 
-Sama kuin [UserSiteAPI::enqueueEditAppJsFile()](../user-site/sivujetti_user-site_user-site-api.html#enqueueeditappjsfile), mutta hyväksyy vain tämän lisäosan slugifoidulla nimiavaruudella (`plugin-my-prefix-my-plugin`) alkavat urlit.
+Sama kuin [UserSiteAPI::enqueueEditAppJsFile()](../user-site/sivujetti_user-site_user-site-api.html#enqueueeditappjsfile), mutta hyväksyy vain tämän lisäosan slugifioidulla nimiavaruudella (`plugin-my-prefix-my-plugin`) alkavat urlit.
 
 #### Signature
 
@@ -207,7 +207,7 @@ final class JetForms implements UserPluginInterface {
 
 ### registerBlockRenderer()
 
-Sama kuin [UserSiteAPI::registerBlockRenderer()](../user-site/sivujetti_user-site_user-site-api.html#registerblockrenderer), mutta hyväksyy vain tämän lisäosan slugifoidulla nimiavaruudella (`my-prefix-my-plugin`) alkavat fileId:t.
+Sama kuin [UserSiteAPI::registerBlockRenderer()](../user-site/sivujetti_user-site_user-site-api.html#registerblockrenderer), mutta hyväksyy vain tämän lisäosan slugifioidulla nimiavaruudella (`my-prefix-my-plugin`) alkavat fileId:t.
 
 #### Signature
 
