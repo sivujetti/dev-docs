@@ -8,4 +8,3 @@ nav_order: 3
 # Tutorials
 
 ^^text^^
-{: .fs-6 .fw-300 }

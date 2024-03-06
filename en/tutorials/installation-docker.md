@@ -127,7 +127,7 @@ docker run -it -d -p 127.0.0.1:3000:8080\
 ```
 {: .dm-windows .d-none }
 
-<span class="bg-highlight">^^text^^</span> ^^text^^ (eg. `5e888fd9627b3e28195c18a9f6f35cb91fd025e398245d968cc8fdcc8e4527ba` -> `5e88`).
+<span class="bg-highlight">^^text^^</span> ^^text^^ (e.g. `5e888fd9627b3e28195c18a9f6f35cb91fd025e398245d968cc8fdcc8e4527ba` -> `5e88`).
 
 ## Step 4.1.
 

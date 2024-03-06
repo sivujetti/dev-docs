@@ -7,7 +7,6 @@ nav_order: 6
 # Misc
 
 ...
-{: .fs-6 .fw-300 }
 
 ## Kuinka mutatoin sivun sisältöä backendissä?
 
@@ -29,7 +28,9 @@ class Site implements UserSiteInterface {
      */
     public function __construct(UserSiteAPI $api) {
         // ...
-        $api->on($api::ON_PAGE_BEFORE_RENDER, function(Page $page) {
+        $api->on($api::ON_PAGE_BEFORE_RENDER, function(Page $page, bool $editModeIsOn) {
+            if ($editModeIsOn)
+                return;
             if ($page->slug !== "/some-page")
                 return; // ei sivu jonka sisältöä halutaan muokata
 
@@ -48,6 +49,9 @@ class Site implements UserSiteInterface {
 ```
 
 ## Kuinka muutan sivun &lt;head&gt;-tagin sisältöä backendissä?
+
+Voit myös määritellä &lt;head&gt;-tagiin renderöityvää koodia suoraan muokkaustilassa, "Sivusto > Globaalit skriptit" -näkymässä.
+{: .message-box.info data-title="Info" }
 
 Näin:
 
@@ -80,7 +84,7 @@ class Site implements UserSiteInterface {
 
 ## Kuinka lisään custom-templaatin listaussisällölle?
 
-1. Uploadaa tiedosto `${sivustonPolkuPalvelimella}site/templates/` kansioon palvelimella
+1. Uppaa tiedosto `${sivustonPolkuPalvelimella}site/templates/` kansioon palvelimella
 1. Rekisteröi edellisen stepin tiedosto `Site`-luokassa
 
 ### Step 1:
@@ -110,6 +114,7 @@ Uppaa tiedosto `${sivustonPolkuPalvelimella}site/templates/block-listing-jokin-n
 ```
 
 ### Step 2:
+
 ```php
 <?php declare(strict_types=1);
 

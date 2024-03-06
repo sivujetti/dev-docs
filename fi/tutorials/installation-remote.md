@@ -9,4 +9,4 @@ nav_order: 3
 # Asennus serverille (Apache/Nginx)
 {: .no_toc }
 
-Tätä tutoriaalia ei ole vielä kirjoitettu! Jos olet kiinnostunut tästä tutoriaalista, ehdota sitä palautelomakkeella osoitteessa [sivujetti.org/yhteys](https://www.sivujetti.org/early-access/yhteys).
+Tätä tutoriaalia ei ole vielä kirjoitettu! Jos olet kiinnostunut tästä tutoriaalista, ehdota sitä palautelomakkeella osoitteessa [sivujetti.org/yhteys](https://www.sivujetti.org/yhteys).

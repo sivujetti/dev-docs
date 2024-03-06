@@ -8,4 +8,3 @@ nav_order: 3
 # Tutoriaalit
 
 Step-by-step -oppaita, joilla pääset mahdollisimman nopeasti alkuun.
-{: .fs-6 .fw-300 }

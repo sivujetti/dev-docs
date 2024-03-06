@@ -5,29 +5,27 @@ nav_order: 2
 ---
 
 # Yleistä
-{: .fs-9 }
 
-Sivujetti itse hostattava, vapaa, avoimen lähdekoodin nettisivurakentaja ja sisällönhallintajärjestelmä. Sivujetin backend on kirjoitettu php:lla, ja frontend preactilla. Tiedon tallennukseen Sivujetti käyttää joko MySQL/MariaDB-, tai SQLite-tietokantaa.
+Sivujetti on itse hostattava, vapaa & avoimen lähdekoodin nettisivurakentaja ja sisällönhallintajärjestelmä. Sivujetin backend on kirjoitettu php:lla ja se tukee MySQL/MariaDB- sekä SQLite-tietokantoja. Frontend käyttää [Preactia](https://preactjs.com/).
 
-## Miten Sivujetti eroaa muista vastaavista sisällönhallintajärjestelmistä?
+Sivujetin tavoite on yhdistää kaupallisten nettisivurakentajien helppokäyttöisyys sekä avoimen lähdekoodin sisällönhallintajärjestelmien laajennettavuus.
+{: .quote.fs-5.fw-300.bg-grey-lt-000 }
 
-- **Sivujetissä ei ole erillistä hallintanäkymää**, vaan sivujen muokkaus ja esikatselu tapahtuu yhdessä ja samassa näkymässä
-    - Tämää mahdollista nopean muokkausworkflown muokkaa+tallenna+vaihdaselainikkunaa+päivitäsivu -jumpan sijasta
-    - Muokkausnäkymän esikatselu, ja lopullinen sivusto ei eroa mitenkään: näet muokatessasi pikselintarkasti byte-to-byte miltä muokkauksen lopputulos tulee näyttämään
-- **Sivujetti renderöi sivut nopeasti** (~8x luokkaa Wordpressiin verrattuna)
-    - Et siis tarvitse minkäänlaista välimuistimekanismia suurissa osaa tapauksista
-- **Sivujetti tukee sqliteä sekä MySQL/MariaDb -tietokantoja**
-    - Voit valita näiden kahden tietokannan väliltä
-- **Sivujetin koodi on modernia**
-    - 0% legacy -spagettia, 100% solidia, oliopohjaista php8.0+ koodia
-- **Sivujetti on pohjimmiltaan nettisivurakentaja**, ei blogialusta
+## Ominaisuudet
 
-## Miten Sivujetti eroaa muista nettisivurekentajista?
+### Pieni jalanjälki
+Toimii sujuvasti jopa edullisimmissa webhotelleissa. Käyttää viisaasti ja harkiten kolmannen osapuolen riippuvuuksia ja sen ansiosta vie vähän levytilaa ja palvelinliikennettä.
 
-- **Sivujetissä sisältöä ei muokata suoraan sivun "päällä" (in-place), vaan erillisessä käyttöliittymän osiossa** ikään kuin kauko-ohjattuna. Tämä takaa mm. sen, että:
-    - sisällön järjestely raahammalla ei mene ikinä "rikki", koska sisältö esitetään visuaalisesti normalisoituna ja aina saman kokoisena
-    - sisällön lisääminen raahaamalla juuri oikeaan paikkaan on huomattavasti helpompaa ja varmempaa
-    - vaikka sisältö olisi näkymättömissä itse sivulla, se on silti __aina__ muokattavissa käyttöliittymässä (toisin kuin in-place -toetutuksissa)
-    - sisällön seassa voi olla "metasisältöä", kuten koodia, joka in-place -toteutuksissa ei ole mahdollista
-- Sivujetti on **vapaa, avoimen lähdekoodin ohjelmisto**, toisin kuin suurin osa markkinoilla toimivista nettisivurakentajista
-- Sivujetissä on myös sisällönhallintaominaisuuksia, kuten mahdollisuus luoda custom-sisältötyyppejä, tageja, kategorioita jne.
+### Yhdistetty käyttöliittymä ja esikatselu
+Pelimoottoreista vaikutteita ottava käyttöliittymä, jossa rajoittamaton kumoa & tee uudelleen -tuki. Ei erillistä hallintanäkymää.
+
+### Nopea
+Renderöi sivun jopa alle 100 millisekunnissa (vrt. Worpress ~1000ms, Joomla 4 ~400ms, ProcessWire ~300ms <span class="text-grey-dk-000">[Apache, Intel MacBook Air]</span>).
+
+### SOLIDisti laajennettaja
+Helppo laajentaa Sivujetin oliopohjaisen backendin päälle, jossa [Dependency injector](https://github.com/rdlowrey/Auryn) tekee lisäosista (lähes) automaattisesti helposti testattavia.
+
+### Vapaa ohjelmisto
+Lisensoitu [GPL](https://www.gnu.org/licenses/gpl-3.0.html)-lisenssillä, joka suojaa loppukäyttäjien oikeuksia permissiivisiä avoimen lähdekoodin lisenssejä paremmin – käyttäjällä on aina oikeus tutkia sivustonsa lähdekoodia sivuston alkuperästä (tai kaupallisuudesta) huolimatta.
+
+Lisää osoitteesssa [sivujetti.org](https://www.sivujetti.org).

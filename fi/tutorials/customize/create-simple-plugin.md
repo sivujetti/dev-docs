@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Luo lisäosa
-parent: Tutoriaalit
-nav_order: 2
+title: Luo lisäosa (lisäosat)
+parent: Kustomoi sivustoa
+grand_parent: Tutoriaalit
+nav_order: 5
 ---
 
 # Luo lisäosa
@@ -15,17 +16,9 @@ nav_order: 2
 
 ## Step 1. Luo lisäosan pääluokka
 
-<!--
-Jokaisella lisäosalla on pakollinen pääluokka, jonka nimi koostuu kahdesta osasta:
-- Vendor-prefiksistä ja
-- Lisäosan nimestä
+<span class="bg-highlight">Luo kansio</span> `VendorPrefixPluginName` plugins-kansioon, ja <span class="bg-highlight">luo</span> sinne tiedosto `VendorPrefixPluginName.php`.
 
-Tässä esimerkissä vendor-prefix on `VendorPrefix` ja lisäosan nimi `PluginName`.
--->
-
-Luo kansio `VendorPrefixPluginName` plugins-kansioon, ja sinne tiedosto `VendorPrefixPluginName.php`.
-
-Kirjoita `VendorPrefixPluginName.php`:n sisällöksi:
+<span class="bg-highlight">Muokkaa</span> `VendorPrefixPluginName.php`:n sisällöksi tekstieditorilla:
 
 ```php
 <?php declare(strict_types=1);
@@ -53,3 +46,6 @@ Tämän jälkeen kansiorakenne tulisi olla:
         VendorPrefixPluginName.php
     ...
 ```
+
+<script src="/assets/js/sivujetti-docs.js"></script>
+<script>sivujettiDocs.colorCodeMenusAndHeadings();</script>

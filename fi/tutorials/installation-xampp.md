@@ -34,7 +34,7 @@ zend_extension="/Applications/MAMP/bin/php/php8.x.x/lib/php/extensions/no-debug-
 ```
 {: .dm-macos }
 
-Käynnistä Apache XAMPPin hallintapaneelista. Tsekkaa että `c:\xampp\php\php.ini`n rivi `extension=sodium` ei ole kommentoitu.
+Käynnistä Apache XAMPPin hallintapaneelista. Tsekkaa että `c:\xampp\php\php.ini`n rivi `extension=sodium` eikä `extension=zip` ei ole kommentoitu.
 {: .dm-windows .d-none }
 
 ## Step 1. Lataa Sivujetti & luo projektikansio

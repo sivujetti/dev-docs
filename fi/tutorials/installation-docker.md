@@ -149,7 +149,7 @@ Jos edellinen komento ei suostu toimimaan, koita ajaa se ilman viimeisintä osaa
 
 <span class="bg-highlight">Asenna</span> tyhjä teema komennolla `docker exec -it 5e88 php /var/www/sivujetti-backend/cli.php install-from-dir minimal sivujettiuser user@email.com userpass - - - - /`
 
-Tässä kohtaaa konttiin pitäisi ilmestyä uusia tiedostoja teemalle, konfiguraatiolle sekä esim. tietokannalle. Jos loit kontin tiedostosynkkauksen kanssa, nämä uudet tiedostot pitäisi nyt näkyä myös lokaaleissa kansioissa (`to-htdocs` / `to-outside-htdocs`).
+Tässä kohtaa konttiin pitäisi ilmestyä uusia tiedostoja teemalle, konfiguraatiolle sekä esim. tietokannalle. Jos loit kontin tiedostosynkkauksen kanssa, nämä uudet tiedostot pitäisi nyt näkyä myös lokaaleissa kansioissa (`to-htdocs` / `to-outside-htdocs`).
 
 ## Step 5. Avaa sivusto
 

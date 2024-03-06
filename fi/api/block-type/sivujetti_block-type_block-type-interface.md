@@ -8,7 +8,7 @@ nav_order: 1
 
 # interface Sivujetti\\BlockType\\BlockTypeInterface
 
-Rajapinta lohkotyypeille, kuten `HeadingBlockType`, `ButtonBlockType` tai `ContactFormBlockType`.
+Rajapinta lohkotyypeille, kuten `ButtonBlockType`, `TextBlockType` tai `ContactFormBlockType`.
 
 ## Synopsis
 

@@ -7,7 +7,6 @@ nav_order: 6
 # Misc
 
 ...
-{: .fs-6 .fw-300 }
 
 ## ^^text^^
 

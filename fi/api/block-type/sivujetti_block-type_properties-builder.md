@@ -8,7 +8,7 @@ nav_order: 2
 
 # class Sivujetti\\BlockType\\PropertiesBuilder
 
-Builder-luokka, jolla voi määritellä lohkotyypin kentät. Esim. `ParagraphBlockType`llä on pelkästään `text`-kenttä, ja `ColumnsBlockType`:llä `numColumns`, ja `takeFullWidth`.
+Builder-luokka, jolla voi määritellä lohkotyypin kentät. Esim. `ImageBlockType`llä on `src`-, `altText`-, ja `caption`-kentät.
 
 ## Synopsis
 
