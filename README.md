@@ -1,6 +1,6 @@
 # Sivujetti developer docs
 
-Source code of Sivujetti developer docs website. Uses [jekyll](jekyllrb.com/).
+Source code of Sivujetti developer docs website [sivujetti.github.io/dev-docs/fi](https://sivujetti.github.io/dev-docs/fi). Uses [jekyll](jekyllrb.com/).
 
 ## Running locally
 
