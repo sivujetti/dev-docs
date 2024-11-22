@@ -37,8 +37,8 @@ recurse(fs.readdirSync(enContentDirPath, {withFileTypes: true}), enDirPath, (fsE
 
 /**
  * @param {fs.Dirent} fsEnt
- * @param {Array<String>} baseDir
- * @param {Array<{search: String; replace: String;}>} reps
+ * @param {Array<string>} baseDir
+ * @param {Array<{search: string; replace: string;}>} reps
  */
 function replace(fsEnt, baseDir, reps) {
     if (fsEnt.isDirectory()) return;
@@ -51,9 +51,9 @@ function replace(fsEnt, baseDir, reps) {
 
 /**
  * @param {Array<fs.Dirent>} branch
- * @param {Array<String>} base
- * @param {(fsEnt: fs.Dirent, baseDir: Array<String>) => void} doFn
- * @param {Array<String>} cur = []
+ * @param {Array<string>} base
+ * @param {(fsEnt: fs.Dirent, baseDir: Array<string>) => void} doFn
+ * @param {Array<string>} cur = []
  */
 function recurse(branch, base, doFn, cur = []) {
     branch.forEach(fsEnt => {

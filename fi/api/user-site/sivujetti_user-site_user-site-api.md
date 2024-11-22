@@ -2,7 +2,7 @@
 layout: default
 title: Sivujetti&bsol;UserSite&bsol;UserSiteAPI
 parent: Sivujetti&bsol;UserSite
-grand_parent: API
+grand_parent: Backend-API
 nav_order: 1
 ---
 
@@ -27,6 +27,7 @@ class UserSiteAPI {
     public isJsFileEnqueued(string $url): bool
     public registerBlockType(string $name, BlockTypeInterface $instance): void
     public enqueueEditAppJsFile(string $url): void
+    public enqueuePreviewAppJsFile(string $url): void
     public registerBlockRenderer(string $fileId, ?string $friendlyName = null, ?string $for = null): void
     public getPlugin(string $name): ?UserPluginInterface
 }
@@ -159,6 +160,22 @@ Lisää tiedoston sisällytettäväksi sivuun kirjautuneelle muokkaustilassa. `$
 
 ```php
 public function enqueueEditAppJsFile(string $url): void
+```
+
+#### Esimerkit
+
+```php
+...
+```
+
+### enqueuePreviewAppJsFile()
+
+Lisää tiedoston sisällytettäväksi esikatselu-iframeen.
+
+#### Signature
+
+```php
+public function enqueuePreviewAppJsFile(string $url): void
 ```
 
 #### Esimerkit

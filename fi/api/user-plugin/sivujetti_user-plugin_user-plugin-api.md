@@ -2,7 +2,7 @@
 layout: default
 title: Sivujetti&bsol;UserPlugin&bsol;UserPluginAPI
 parent: Sivujetti&bsol;UserPlugin
-grand_parent: API
+grand_parent: Backend-API
 nav_order: 1
 ---
 
@@ -21,8 +21,8 @@ final class UserPluginAPI extends UserSiteAPI {
     public enqueueCssFile(string $url, array<string, string> $attrs = []): void
     public enqueueJsFile(string $url, array<string, string> $attrs = []): void
     public registerBlockType(string $name, BlockTypeInterface $instance): void
-    public enqueueEditAppJsFile(string $url): void
     public registerBlockRenderer(string $fileId, ?string $friendlyName = null, ?string $for = null): void
+    public createService(string $name, array $args = []): mixed
 
     /* Perityt metodit */
     public UserSiteAPI::on(string $when, callable $thenDo): int
@@ -30,6 +30,8 @@ final class UserPluginAPI extends UserSiteAPI {
     public UserSiteAPI::isJsFileEnqueued(string $url): bool
     public UserSiteAPI::registerBlockRenderer(string $fileId, ?string $friendlyName = null, ?string $for = null): void
     public UserSiteAPI::getPlugin(string $name): ?UserPluginInterface
+    public UserSiteAPI::enqueueEditAppJsFile(string $url): void
+    public UserSiteAPI::enqueuePreviewAppJsFile(string $url): void
 }
 ```
 
@@ -180,27 +182,20 @@ final class JetForms implements UserPluginInterface {
 
 ---
 
-### enqueueEditAppJsFile()
+### createService()
 
-Sama kuin [UserSiteAPI::enqueueEditAppJsFile()](../user-site/sivujetti_user-site_user-site-api.html#enqueueeditappjsfile), mutta hyväksyy vain tämän lisäosan slugifioidulla nimiavaruudella (`plugin-my-prefix-my-plugin`) alkavat urlit.
+...
 
 #### Signature
 
 ```php
-public function enqueueEditAppJsFile(string $url): void
+public function createService(string $name, array $args = []): mixed
 ```
 
 #### Esimerkit
 
 ```php
-final class JetForms implements UserPluginInterface {
-    public function __construct(UserPluginAPI $api) {
-        $api->on($api::ON_ROUTE_CONTROLLER_BEFORE_EXEC, function () use ($api) {
-            ...
-            $api->enqueueEditAppJsFile("plugin-jet-forms-edit-app-bundle.js");
-        });
-    }
-}
+...
 ```
 
 ---

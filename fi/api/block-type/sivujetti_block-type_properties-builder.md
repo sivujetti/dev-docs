@@ -2,7 +2,7 @@
 layout: default
 title: Sivujetti&bsol;BlockType&bsol;PropertiesBuilder
 parent: Sivujetti&bsol;BlockType
-grand_parent: API
+grand_parent: Backend-API
 nav_order: 2
 ---
 

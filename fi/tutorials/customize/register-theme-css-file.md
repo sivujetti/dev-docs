@@ -12,10 +12,10 @@ Tässä ohjeessa lisätään kaksi teematiedostoa sivuston &lt;head&gt; -tagiin 
 
 ## Step 0. Paikallista Theme.php, ja public-kansio
 
-- MAMP -tutoriaali
+- MAMP -tutoriaali (Macos)
     - `Theme.php` sijaitsee polussa `/Applications/MAMP/htdocs/sivusto/backend/site`
     - teematiedostot sijaitsee polussa `/Applications/MAMP/htdocs/sivusto/public`
-- MAMP -tutoriaali
+- XAMPP -tutoriaali (Windows)
     - `Theme.php` sijaitsee polussa `c:\xampp\htdocs\sivusto\backend\site`
     - teematiedostot sijaitsee polussa `c:\xampp\htdocs\sivusto\public`
 - Docker -tutoriaali

@@ -39,7 +39,7 @@ zend_extension="/Applications/MAMP/bin/php/php8.x.x/lib/php/extensions/no-debug-
 
 ## Step 1. ^^text^^
 
-<span class="bg-highlight">Download</span> [sivujetti-0.15.0.zip](https://github.com/sivujetti/sivujetti/releases/download/sivujetti-0.15.0/sivujetti-0.15.0.zip).
+<span class="bg-highlight">Download</span> [sivujetti-0.16.0.zip](https://github.com/sivujetti/sivujetti/releases/download/sivujetti-0.16.0/sivujetti-0.16.0.zip).
 
 ^^text^^
 {: .dm-macos }
@@ -78,7 +78,7 @@ zend_extension="/Applications/MAMP/bin/php/php8.x.x/lib/php/extensions/no-debug-
 <span class="bg-highlight">^^text^^</span> ^^text^^ `php backend/cli.php install-from-dir minimal sivujettiuser user@email.com userpass - - - - /hello-sivujetti/`
 {: .dm-macos }
 
-^^text^^ `command not found: php`, run `alias php='/Applications/MAMP/bin/php/php8.0.0/bin/php'` and try again.
+^^text^^ `command not found: php`, run `alias php='/Applications/MAMP/bin/php/php8.3.9/bin/php'` and try again.
 {: .message-box.info .dm-macos data-title="Info" }
 
 <span class="bg-highlight">^^text^^</span> ^^text^^ `c:\xampp\php\php.exe backend\cli.php install-from-dir minimal sivujettiuser user@email.com userpass - - - - /hello-sivujetti/`
@@ -119,7 +119,7 @@ zend_extension="/Applications/MAMP/bin/php/php8.x.x/lib/php/extensions/no-debug-
 (replace `... mysql:127.0.0.1:8889 hellosivujetti ...` -> `... mysql hellosivujetti ...` ^^text^^)
 {: .dm-macos }
 
-^^text^^ `command not found: php`, run `alias php='/Applications/MAMP/bin/php/php8.0.0/bin/php'` and tru again.
+^^text^^ `command not found: php`, run `alias php='/Applications/MAMP/bin/php/php8.3.9/bin/php'` and try again.
 {: .message-box.info .dm-macos data-title="Info" }
 
 <span class="bg-highlight">^^text^^</span> `c:\xampp\php\php.exe backend\cli.php install-from-dir minimal sivujettiuser user@email.com userpass mysql hellosivujetti root - /hello-sivujetti/`

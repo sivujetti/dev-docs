@@ -25,7 +25,7 @@ nav_order: 2
 
 ### sivujetti-docker
 
-<span class="bg-highlight">Download</span> [sivujetti-docker-0.2.0.zip](https://github.com/sivujetti/sivujetti-docker/releases/download/sivujetti-docker-0.2.0/sivujetti-docker-0.2.0.zip).
+<span class="bg-highlight">Download</span> [sivujetti-docker-0.3.0.zip](https://github.com/sivujetti/sivujetti-docker/releases/download/sivujetti-docker-0.3.0/sivujetti-docker-0.3.0.zip).
 
 <span class="bg-highlight">^^text^^</span> ^^text^^:
 {: .dm-macos }
@@ -50,7 +50,7 @@ nav_order: 2
 
 ### Sivujetti
 
-<span class="bg-highlight">Download</span> [sivujetti-0.15.0.zip](https://github.com/sivujetti/sivujetti/releases/download/sivujetti-0.15.0/sivujetti-0.15.0.zip) ^^text^^:
+<span class="bg-highlight">Download</span> [sivujetti-0.16.0.zip](https://github.com/sivujetti/sivujetti/releases/download/sivujetti-0.16.0/sivujetti-0.16.0.zip) ^^text^^:
 ```
 /Documents
     ...

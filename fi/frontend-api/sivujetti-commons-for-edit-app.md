@@ -7,12 +7,12 @@ nav_order: 2
 
 # module @sivujetti-commons-for-edit-app
 
-Moduuli, jota voidaan käyttää lisäosissa, ks. [Luo lisäosa - osa 1 - todo](../tutorials/customize/create-plugin-part-1.html#todo). Tämäkin moduuli, on teknisesti globaali muuttuja, kuten `@sivujetti-commons-for-web-pages`, jota [rollupin ansiosta] vain käytetään kuten tavallista javascript-moduulia.
+Moduuli, jota voidaan käyttää lisäosissa, ks. [Luo lisäosa - osa 1 - todo](../tutorials/customize/create-plugin-part-1.html#todo). Tämäkin moduuli, kuten `@sivujetti-commons-for-web-pages`, on teknisesti globaali muuttuja jota [rollupin ansiosta] vain käytetään kuten tavallista javascript-moduulia.
 
 ### Lähdekoodi
 {: .mb-3 }
 
-[frontend2/commons-for-edit-app/main.js <svg xmlns="http://www.w3.org/2000/svg" class="icon-tabler icon-tabler-in-text icon-tabler-external-link" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M11 7h-5a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-5"></path><line x1="10" y1="14" x2="20" y2="4"></line><polyline points="15 4 20 4 20 9"></polyline></svg>](https://github.com/sivujetti/sivujetti/blob/next/frontend2/commons-for-edit-app/main.js).
+[frontend/commons-for-edit-app/main.js <svg xmlns="http://www.w3.org/2000/svg" class="icon-tabler icon-tabler-in-text icon-tabler-external-link" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M11 7h-5a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-5"></path><line x1="10" y1="14" x2="20" y2="4"></line><polyline points="15 4 20 4 20 9"></polyline></svg>](https://github.com/sivujetti/sivujetti/blob/next/frontend/commons-for-edit-app/main.js).
 
 Exports
 {: .text-delta .mt-8 }
@@ -131,7 +131,6 @@ interface BlockBlueprint {
         title: string;
         renderer: string;
         styleClasses: string;
-        styleGroup: string;
     };
     initialStyles: Array<StyleChunk>;
     initialChildren: Array<BlockBlueprint>;
@@ -141,16 +140,42 @@ interface StyleChunk {
     scss: string;
     scope: {
         kind: styleScopeKind;
-        media: mediaScope;
         layer: stylesLayer;
+        page?: string; // Example '-NGLsmQwm7aOSH-lS1-J:Pages'
+    };
+    data?: {
+        title?: string;
+        customizationSettings?: {
+            varDefs: Array<VisualStylesFormVarDefinition>;
+        };
+        associatedBlockTypes?: Array<string>;
     };
 }
 
-type styleScopeKind = 'single-block'|'custom-class'|'optimized-class'|'base';
-
-type mediaScope = 'all'|'960'|'840'|'600'|'480'|string;
+type styleScopeKind = 'single-block'|'custom-class'|'base-vars'|'base-freeform';
 
 type stylesLayer = 'user-styles'|'dev-styles'|'base-styles';
+
+interface VisualStylesFormVarDefinition {
+    varName: string;             // Example 'textAlign'
+    cssProp: string;             // Example 'text-align'
+    cssTemplate: string|null;    // Example 'border: 1px solid %s'
+    cssSubSelector: string|null; // Example '>img'
+    widgetSettings: VisualStylesFormVarDefinitionWidgetSettings & {[possibleExtras: string]: any;};
+}
+
+interface VisualStylesFormVarDefinitionWidgetSettings {
+    valueType?: string;          // 'color'|'option' etc.
+    renderer?: preact.Component; // ColorValueInput|OptionValueInput etc.
+    label: string;               // Example 'Text align'
+    defaultThemeValue?:          // Example {num: '6', unit: 'rem'}
+        ColorValue |
+        GridColumnsValue |
+        ImageValue |
+        LengthValue |
+        OptionValue |
+        string;
+}
 
 interface BlockRenderer {
     fileId: string;
@@ -183,14 +208,11 @@ interface BlockTypesRegister {
 interface BlockTypeDefinition {
     name: string;         // Examples 'Text'
     friendlyName: string; // Examples 'Text'
-    editForm: preact.Component;
-    editFormType?: editFormType;
-    stylesEditForm: preact.Component|null;
+    editForm: preact.Component|null;
+    stylesEditForm: 'default'|preact.Component|null;
     createOwnProps(defProps: {[key: string]: any;}): {[propName: string]: any};
     icon?: string;        // Examples 'blockquote'
 }
-
-type editFormType = 'content'|'content+user-styles';
 
 ```
 
@@ -272,7 +294,7 @@ floatingDialog.open(MyPopup, {
 {: .pt-4 }
 
 ```typescript
-export class FormGroup extends preact.Component<{className?: string}, any> {
+export class FormGroup extends preact.Component<{className?: string;}, any> {
     // No public methods
 }
 ```
@@ -342,11 +364,11 @@ export function hasErrors(cmp: preact.Component): boolean;
 ```typescript
 export function hookForm(
     cmp: preact.Component,
-    inputs: Array<InputDef>,
+    inputs: Array<InputDefinition>,
     initialState: {[key: string]: any;} = {}
 ): {[key: string]: any;};
 
-interface InputDef {
+interface InputDefinition {
     name: string;                         // e.g. 'numColumns'
     value: string|number;                 // e.g. 1, 'foo'
     validations: Array<[string, ...any]>; // e.g. [['min', 0], ['max', 12]]
@@ -363,11 +385,74 @@ interface InputDef {
 
 ```typescript
 export class Icon extends preact.Component<{
-    iconId: string; // see github.com/sivujetti/sivujetti/blob/master/public/sivujetti/assets/tabler-sprite-custom.svg
+    // see github.com/sivujetti/sivujetti/blob/master/public/sivujetti/assets/tabler-sprite-custom.svg
+    iconId: stockId|string;
     className?: string;
 }, any> {
     // No public methods
 }
+
+type stockId = 'alert-triangle' |
+    'arrow-back-up' |
+    'at' |
+    'ban' |
+    'blockquote' |
+    'box' |
+    'check' |
+    'checkbox' |
+    'chevron-down' |
+    'chevron-right' |
+    'circle-plus' |
+    'circle-x' |
+    'circle' |
+    'code' |
+    'columns-3' |
+    'database' |
+    'device-floppy' |
+    'dots' |
+    'external-link' |
+    'eye' |
+    'eye-off' |
+    'file-info' |
+    'file-plus' |
+    'file-text' |
+    'file' |
+    'files' |
+    'grid-dots' |
+    'hand-finger' |
+    'heading' |
+    'info-circle' |
+    'layout-columns' |
+    'layout-grid' |
+    'layout-list' |
+    'layout-rows' |
+    'letter-p' |
+    'letter-t' |
+    'lifebuoy' |
+    'list' |
+    'list-details' |
+    'macro' |
+    'map-pin' |
+    'menu-2' |
+    'message-2' |
+    'new-section' |
+    'number-1' |
+    'palette' |
+    'pencil' |
+    'photo' |
+    'plus' |
+    'question-mark' |
+    'rectangle' |
+    'refresh' |
+    'rotate' |
+    'search' |
+    'selector' |
+    'settings' |
+    'send' |
+    'slideshow' |
+    'star' |
+    'writing' |
+    'x';
 ```
 
 ## &lt;Input/&gt;
@@ -440,7 +525,7 @@ export const objectUtils: {
 {: .pt-4 }
 
 ```typescript
-export function reHookValues(cmp: preact.Component, inputs: Array<InputDef>): void;
+export function reHookValues(cmp: preact.Component, inputs: Array<InputDefinition>): void;
 ```
 
 ## setFocusTo()

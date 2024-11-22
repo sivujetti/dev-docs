@@ -2,7 +2,7 @@
 layout: default
 title: Sivujetti&bsol;StoredObjects&bsol;StoredObjectsRepository
 parent: Sivujetti&bsol;StoredObjects
-grand_parent: API
+grand_parent: Backend-API
 nav_order: 1
 ---
 

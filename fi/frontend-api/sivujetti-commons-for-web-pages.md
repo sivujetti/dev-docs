@@ -26,7 +26,7 @@ ja sitten ->
 ### Lähdekoodi
 {: .mb-3 }
 
-[frontend2/commons-for-web-pages/main.js <svg xmlns="http://www.w3.org/2000/svg" class="icon-tabler icon-tabler-in-text icon-tabler-external-link" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M11 7h-5a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-5"></path><line x1="10" y1="14" x2="20" y2="4"></line><polyline points="15 4 20 4 20 9"></polyline></svg>](https://github.com/sivujetti/sivujetti/blob/next/frontend2/commons-for-web-pages/main.js).
+[frontend/commons-for-web-pages/main.js <svg xmlns="http://www.w3.org/2000/svg" class="icon-tabler icon-tabler-in-text icon-tabler-external-link" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M11 7h-5a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-5"></path><line x1="10" y1="14" x2="20" y2="4"></line><polyline points="15 4 20 4 20 9"></polyline></svg>](https://github.com/sivujetti/sivujetti/blob/next/frontend/commons-for-web-pages/main.js).
 
 ---
 
@@ -54,7 +54,7 @@ interface Env {
 
 ### Example
 
-```
+```javascript
 import {env} from '@sivujetti-commons-for-web-pages';
 
 console.log(env.normalTypingDebounceMillis) // 200
@@ -68,8 +68,8 @@ export const http: Http;
 
 interface Http {
     new (
-    	fetchFn: (input: RequestInfo | URL, init?: RequestInit) => Promise<Response> = (url, settings) => window.fetch(url, settings),
-    	makeUrl: (url: string) => string = url => url
+        fetchFn: (input: RequestInfo | URL, init?: RequestInit) => Promise<Response> = (url, settings) => window.fetch(url, settings),
+        makeUrl: (url: string) => string = url => url
     ): Http;
     get<T>(url: string, settings: RequestInit = {}): Promise<T>;
     post<T>(url: string, data: Object, settings: RequestInit = {}, defaults: RequestInit = {method: 'POST'}): Promise<T>;

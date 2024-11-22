@@ -29,3 +29,7 @@ Helppo laajentaa Sivujetin oliopohjaisen backendin päälle, jossa [Dependency i
 Lisensoitu [GPL](https://www.gnu.org/licenses/gpl-3.0.html)-lisenssillä, joka suojaa loppukäyttäjien oikeuksia permissiivisiä avoimen lähdekoodin lisenssejä paremmin – käyttäjällä on aina oikeus tutkia sivustonsa lähdekoodia sivuston alkuperästä (tai kaupallisuudesta) huolimatta.
 
 Lisää osoitteesssa [sivujetti.org](https://www.sivujetti.org).
+
+<!--
+1. sivujetti.zip vie vain 0.8MB (vrt. wordpress-6.3.2.zip 25MB, processwire-3.0.227.zip 8.8MB) ↩︎
+-->

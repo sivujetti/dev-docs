@@ -25,7 +25,7 @@ Docker Desktop tulisi olla jo asennettuna ja käynnissä koneellasi.
 
 ### sivujetti-docker
 
-<span class="bg-highlight">Lataa</span> [sivujetti-docker-0.2.0.zip](https://github.com/sivujetti/sivujetti-docker/releases/download/sivujetti-docker-0.2.0/sivujetti-docker-0.2.0.zip).
+<span class="bg-highlight">Lataa</span> [sivujetti-docker-0.3.0.zip](https://github.com/sivujetti/sivujetti-docker/releases/download/sivujetti-docker-0.3.0/sivujetti-docker-0.3.0.zip).
 
 <span class="bg-highlight">Pura</span> lataamasi zipin sisältö `Dokumentit/sivujetti-docker` -kansioon. Tällöin kansiorakenne pitäisi näyttää tältä:
 {: .dm-macos }
@@ -50,7 +50,7 @@ Docker Desktop tulisi olla jo asennettuna ja käynnissä koneellasi.
 
 ### Sivujetti
 
-<span class="bg-highlight">Lataa</span> [sivujetti-0.15.0.zip](https://github.com/sivujetti/sivujetti/releases/download/sivujetti-0.15.0/sivujetti-0.15.0.zip), ja pura se edellisen kohdan kansioon. <span class="bg-highlight">Siirrä</span> sen `public`-kansio sekä `index.php`-tiedosto edellisen stepin `to-htdocs` -kansioon, <span class="bg-highlight">ja</span> `backend` -kansion sisältö kokonaisuudessaan `to-outside-htdocs` -kansioon. Tämän jälkeen kansiorakenne pitäisi olla:
+<span class="bg-highlight">Lataa</span> [sivujetti-0.16.0.zip](https://github.com/sivujetti/sivujetti/releases/download/sivujetti-0.16.0/sivujetti-0.16.0.zip), ja pura se edellisen kohdan kansioon. <span class="bg-highlight">Siirrä</span> sen `public`-kansio sekä `index.php`-tiedosto edellisen stepin `to-htdocs` -kansioon, <span class="bg-highlight">ja</span> `backend` -kansion sisältö kokonaisuudessaan `to-outside-htdocs` -kansioon. Tämän jälkeen kansiorakenne pitäisi olla:
 ```
 /Dokumentit
     ...

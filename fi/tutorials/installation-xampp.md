@@ -9,7 +9,7 @@ nav_order: 1
 # Asennus lokaalisti XAMPP/MAMP
 {: .no_toc }
 
-Tässä tutoriaalissa opit luomaan uuden Sivujetti -sivuston jo koneellesi asennettuun XAMPP/MAMP -ympäristöön. Valitse käyttöjärjestelmäsi
+Tässä tutoriaalissa opit luomaan uuden Sivujetti -sivuston jo koneellesi asennettuun XAMPP 8.2.12 / MAMP 7.1 -ympäristöön. Valitse käyttöjärjestelmäsi
 
 <div id="tutorial-os-selector" class="mb-6">
 <button onclick="sivujettiDocs.showInstallationTutorialInstructionsFor(event, 'macos')" type="button" name="button" class="btn selected">Macos</button>
@@ -21,7 +21,7 @@ Tässä tutoriaalissa opit luomaan uuden Sivujetti -sivuston jo koneellesi asenn
 
 ## Step 0. Esivalmistelut
 
-Käynnistä MAMPin serveri on päällä, ja varmista että sen PHP-tulkin versio on 8.0 tai uudempi. Jos haluat selkeämmät virheviestit, tsekkaa että `/Applications/MAMP/bin/php/php8.x.x/conf/php.ini` löytyy:
+Käynnistä MAMPin serveri on päällä, ja varmista että sen PHP-tulkin versio on 8.1 tai uudempi. Jos haluat selkeämmät virheviestit, tsekkaa että `/Applications/MAMP/bin/php/php8.x.x/conf/php.ini` löytyy:
 {: .dm-macos }
 ```ini
 [xdebug]
@@ -34,12 +34,12 @@ zend_extension="/Applications/MAMP/bin/php/php8.x.x/lib/php/extensions/no-debug-
 ```
 {: .dm-macos }
 
-Käynnistä Apache XAMPPin hallintapaneelista. Tsekkaa että `c:\xampp\php\php.ini`n rivi `extension=sodium` eikä `extension=zip` ei ole kommentoitu.
+Käynnistä Apache XAMPPin hallintapaneelista. Tsekkaa että `c:\xampp\php\php.ini`n rivi `extension=sodium` eikä `extension=zip` ei ole kommentoitu. Tsekkaa että `c:\xampp\apache\conf\extra\httpd-xampp.conf`:ssa on rivi `LoadFile "C:/xampp/php/libsodium.dll"`.
 {: .dm-windows .d-none }
 
 ## Step 1. Lataa Sivujetti & luo projektikansio
 
-<span class="bg-highlight">Lataa</span> [sivujetti-0.15.0.zip](https://github.com/sivujetti/sivujetti/releases/download/sivujetti-0.15.0/sivujetti-0.15.0.zip).
+<span class="bg-highlight">Lataa</span> [sivujetti-0.16.0.zip](https://github.com/sivujetti/sivujetti/releases/download/sivujetti-0.16.0/sivujetti-0.16.0.zip).
 
 <span class="bg-highlight">Luo</span> uudelle sivustolle työkansio (`/Applications/MAMP/htdocs/hello-sivujetti/`) ja <span class="bg-highlight">pura</span> lataamasi zipin sisältö sinne kokonaisuudessaan. Tällöin kansiorakenne pitäisi näyttää tältä:
 {: .dm-macos }
@@ -78,7 +78,7 @@ Käynnistä Apache XAMPPin hallintapaneelista. Tsekkaa että `c:\xampp\php\php.i
 <span class="bg-highlight">Asenna</span> tyhjä teema komennolla `php backend/cli.php install-from-dir minimal sivujettiuser user@email.com userpass - - - - /hello-sivujetti/`
 {: .dm-macos }
 
-Mikäli terminaali sanoo että `command not found: php`, aja komento `alias php='/Applications/MAMP/bin/php/php8.0.0/bin/php'` ja yritä sitten uudelleen.
+Mikäli terminaali sanoo että `command not found: php`, aja komento `alias php='/Applications/MAMP/bin/php/php8.3.9/bin/php'` ja yritä sitten uudelleen.
 {: .message-box.info .dm-macos data-title="Info" }
 
 <span class="bg-highlight">Asenna</span> oletussisältö komennolla `c:\xampp\php\php.exe backend\cli.php install-from-dir minimal sivujettiuser user@email.com userpass - - - - /hello-sivujetti/`
@@ -96,7 +96,7 @@ Jos komento tulostaa virheviestin, joka sanoo ettei sodium-lisäosaa voitu ladat
 <span class="bg-highlight">Avaa</span> komentoriviohjelma (`⊞ Win + X` ja sitten `A`), tai (`⊞ Win + R`, kirjoita `cmd.exe` ja paina enter)
 {: .dm-windows .d-none }
 
-<span class="bg-highlight">Luo</span> uusi tietokanta ajamalle komento `/Applications/MAMP/Library/bin/mysql -u root -p` (kirjoita salasanaksi `root`), sitten `create database hellosivujetti;`, ja lopuksi `exit`
+<span class="bg-highlight">Luo</span> uusi tietokanta ajamalle komento `/Applications/MAMP/Library/bin/mysql80/bin/mysql -u root -p` (kirjoita salasanaksi `root`), sitten `create database hellosivujetti;`, ja lopuksi `exit`
 {: .dm-macos }
 
 <span class="bg-highlight">Luo</span> uusi tietokanta ajamalle komento `c:\xampp\mysql\bin\mysql.exe -u root`, sitten `create database hellosivujetti;`, ja lopuksi `exit`
@@ -119,7 +119,7 @@ Voit käyttää myös olemassa olevaa tietokantakäyttäjää root & root:n sija
 (korvaa `... mysql:127.0.0.1:8889 hellosivujetti ...` -> `... mysql hellosivujetti ...` jos käytät MAMP:in asetuksissa portteja 80 ja 3306)
 {: .dm-macos }
 
-Mikäli terminaali sanoo että `command not found: php`, aja komento `alias php='/Applications/MAMP/bin/php/php8.0.0/bin/php'` ja yritä sitten uudelleen.
+Mikäli terminaali sanoo että `command not found: php`, aja komento `alias php='/Applications/MAMP/bin/php/php8.3.9/bin/php'` ja yritä sitten uudelleen.
 {: .message-box.info .dm-macos data-title="Info" }
 
 <span class="bg-highlight">Aja komento</span> `c:\xampp\php\php.exe backend\cli.php install-from-dir minimal sivujettiuser user@email.com userpass mysql hellosivujetti root - /hello-sivujetti/`
