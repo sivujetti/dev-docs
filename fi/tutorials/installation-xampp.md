@@ -39,7 +39,7 @@ Käynnistä Apache XAMPPin hallintapaneelista. Tsekkaa että `c:\xampp\php\php.i
 
 ## Step 1. Lataa Sivujetti & luo projektikansio
 
-<span class="bg-highlight">Lataa</span> [sivujetti-0.16.0.zip](https://github.com/sivujetti/sivujetti/releases/download/sivujetti-0.16.0/sivujetti-0.16.0.zip).
+<span class="bg-highlight">Lataa</span> [sivujetti-0.16.1.zip](https://github.com/sivujetti/sivujetti/releases/download/sivujetti-0.16.1/sivujetti-0.16.1.zip).
 
 <span class="bg-highlight">Luo</span> uudelle sivustolle työkansio (`/Applications/MAMP/htdocs/hello-sivujetti/`) ja <span class="bg-highlight">pura</span> lataamasi zipin sisältö sinne kokonaisuudessaan. Tällöin kansiorakenne pitäisi näyttää tältä:
 {: .dm-macos }

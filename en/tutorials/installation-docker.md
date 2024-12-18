@@ -50,7 +50,7 @@ nav_order: 2
 
 ### Sivujetti
 
-<span class="bg-highlight">Download</span> [sivujetti-0.16.0.zip](https://github.com/sivujetti/sivujetti/releases/download/sivujetti-0.16.0/sivujetti-0.16.0.zip) ^^text^^:
+<span class="bg-highlight">Download</span> [sivujetti-0.16.1.zip](https://github.com/sivujetti/sivujetti/releases/download/sivujetti-0.16.1/sivujetti-0.16.1.zip) ^^text^^:
 ```
 /Documents
     ...
